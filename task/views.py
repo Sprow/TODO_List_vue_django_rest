@@ -2,7 +2,7 @@ from django.http import Http404
 
 from rest_framework.views import APIView
 from rest_framework.response import Response
-# from rest_framework import status
+
 from rest_framework.generics import CreateAPIView, ListAPIView
 
 from task.serializers import TaskSerializer, CreateTaskSerializer
@@ -16,12 +16,6 @@ class CreateTaskView(CreateAPIView):
     """
     serializer_class = TaskSerializer
     permission_classes = (AllowAny,)
-    # queryset = Task.objects.all()
-
-    # def create(self, request, *args, **kwargs):
-    #     response = super().create(request, *args, **kwargs)
-    #     data = Task.objects.all()
-    #     return Response(data)
 
 
 class DeleteTaskView(APIView):
@@ -34,7 +28,6 @@ class DeleteTaskView(APIView):
         task = self.get_object(task_id)
         task.delete()
         return Response({'delete': 'success'})
-        # return Response(status=status.HTTP_204_NO_CONTENT)
 
     def get_object(self, obj_id):
         try:
