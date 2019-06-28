@@ -5,4 +5,3 @@ __pycache__
 ENV
 venv
 .log
-frontend/node_modules
